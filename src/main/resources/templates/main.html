@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
+
+    <!--구글 CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function getProducts() {
+            $.get('/products', function (data) {    <!--콜백 함수-->
+                console.log(data);
+
+            for (item in data) {
+                $('#product_list').append($('<li>' + data[item].userId + " " + data[item].userName + '</li>'));
+            }
+            })
+        }
+    </script>
 </head>
 <body>
 
     <h1>메인 화면입니다.</h1>
     <p th:text="${member.userName}"></p>
     <a href="/viewProducts">전체 상품 보기</a>
+    <button onclick="getProducts()">전체 상품 보기(ajax)</button>
+
+    <ul id="product_list">
+    </ul>
 </body>
 </html>
