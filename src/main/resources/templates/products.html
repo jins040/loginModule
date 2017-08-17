@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+
+    <script>
+        function logout() {
+            window.location.href = '/logout';
+        }
+    </script>
+</head>
+<body>
+    <p><span th:text="${member.userName}"/> 님 환영합니다.</p>
+    <h1>전체 상품보기</h1>
+
+    <button onclick="logout()">로그아웃</button>
+</body>
+</html>
